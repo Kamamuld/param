@@ -1,0 +1,64 @@
+@mixin BoxSizing($boxSizing: border-box) {
+  box-sizing: $boxSizing;
+
+  * {
+    box-sizing: $boxSizing;
+  }
+}
+
+@mixin Size($height, $fontSize, $caretWidth, $caretHeight) {
+  height: $height;
+  line-height: $height - 1px;
+  font-size: $fontSize;
+
+  .input {
+    display: block;
+    font-size: $fontSize;
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 $height white inset;
+    }
+  }
+
+  .caret-box {
+    width: $caretWidth;
+    height: $caretHeight;
+  }
+
+  .prefix,
+  .suffix {
+    margin-top: -1px;
+    height: $height;
+    line-height: $height;
+  }
+}
+
+@mixin Selection($color, $color2) {
+  &::selection      {
+    background: $color;
+    color: $color2;
+  }
+
+  &::-moz-selection {
+    background: $color;
+    color: $color2;
+  }
+}
+
+@mixin Placeholder($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color !important;
+  }
+}

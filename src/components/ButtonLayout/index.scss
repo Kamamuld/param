@@ -1,0 +1,297 @@
+@import "../../common/common";
+
+$base-transition: all 100ms linear;
+
+.button {
+  font: 600 13px 'Open Sans', sans-serif;
+  height: 34px;
+  border-radius: 4px;
+
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  border: 1px solid;
+  cursor: pointer;
+  outline: none;
+  transition: $base-transition;
+  text-decoration: none;
+  position: relative;
+  max-width: 100%;
+
+  a {
+    color: $W;
+    text-decoration: none;
+  }
+
+  & > .inner {
+    display: flex!important;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+  }
+
+  & > .inner,
+  & > div,
+  & > .inner > div {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    line-height: inherit;
+  }
+
+  &:active:not(.no-active) {
+    padding-top: 2px;
+  }
+}
+
+.caret-box {
+  height: 16px;
+  border-left: 1px solid $W;
+  margin: 0 -8px 0 8px;
+  opacity: .2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.caret {
+  transition: transform .3s;
+  transform: rotate(0deg);
+}
+
+.caret-down {
+  transform: rotate(180deg);
+}
+
+.md {
+  padding: 0 16px;
+}
+
+.sm, .xs {
+  height: auto;
+  font-size: 12px;
+  line-height: 12px;
+
+  .caret-box {
+    height: calc(100% - 8px);
+    margin: 4px -2px 4px 6px;
+
+    i {
+      margin-left: 4px;
+    }
+  }
+}
+
+.sm {
+  padding: 2px 8px;
+
+  .hasTwoRows {
+    overflow: hidden;
+    position: relative;
+    max-height: 24px;
+
+    * {
+      display: inline;
+    }
+  }
+}
+
+.xs {
+  padding: 4px;
+}
+
+.green {
+  background: $G1;
+  border-color: $G1;
+  color: $W;
+
+  &.hover,
+  &:hover {
+    background: $G2;
+  }
+
+  &.active,
+  &:active {
+    background: $G2;
+    box-shadow: 0 2px 4px #5CB85C inset;
+  }
+
+  &:focus {
+    box-shadow: 0 0 8px 0 #75d175;
+  }
+}
+
+.red {
+  background: $R1;
+  border-color: $R1;
+  color: $W;
+
+  &.hover,
+  &:hover {
+    background: $R2;
+  }
+
+  &.active,
+  &:active {
+    background: $R2;
+    box-shadow: 0 2px 4px #E91F0D inset;
+  }
+
+  &:focus {
+    box-shadow: 0 0 8px 0 rgba(255, 49, 31, .6);
+  }
+}
+
+.blue {
+  background: $B1;
+  border-color: $B1;
+  color: $W;
+
+  &.hover,
+  &:hover {
+    background: $B2;
+  }
+
+  &.active,
+  &:active {
+    background: $B2;
+    box-shadow: 0 2px 4px #337AB7 inset;
+  }
+
+  &:focus {
+    box-shadow: 0 0 8px 0 rgba(71, 145, 209, .8);
+  }
+}
+
+.secondary {
+  background: $W;
+  border-color: $D2;
+  color: $D3;
+  font-weight: 400;
+
+  &.hover,
+  &:hover {
+    background: $D1;
+  }
+
+  &.active,
+  &:active {
+    background: $D1;
+    box-shadow:inset 0 2px 4px 0 rgba(40, 46, 51, .4);
+  }
+
+  &:focus {
+    box-shadow: 0 0 8px 0 rgba(50, 50, 50, .3);
+  }
+
+  &.disabled,
+  &.disabled.hover,
+  &.disabled:hover,
+  &.disabled.active,
+  &.disabled:active,
+  &.disabled:focus,
+  &:disabled,
+  &:disabled.hover,
+  &:disabled:hover,
+  &:disabled.active,
+  &:disabled:active,
+  &:disabled:focus {
+    background: $W;
+    color: $D4;
+  }
+
+  .caret-box {
+    border-left-color: $D3;
+  }
+}
+
+.third {
+  background: $W;
+  border-color: $W;
+  color: $B1;
+  font-weight: 400;
+
+  &:focus {
+    box-shadow: 0 0 8px 0 rgba(71, 145, 209, .2);
+  }
+
+  &.disabled,
+  &.disabled.hover,
+  &.disabled:hover,
+  &.disabled.active,
+  &.disabled:active,
+  &.disabled:focus,
+  &:disabled,
+  &:disabled.hover,
+  &:disabled:hover,
+  &:disabled.active,
+  &:disabled:active,
+  &:disabled:focus {
+    background: $W;
+    border-color: $W;
+    color: $D4;
+  }
+
+  .caret-box {
+    border-left-color: $B1;
+  }
+}
+
+.disabled,
+.disabled.hover,
+.disabled:hover,
+.disabled.active,
+.disabled:active,
+.disabled:focus,
+.button:disabled,
+.button:disabled.hover,
+.button:disabled:hover,
+.button:disabled.active,
+.button:disabled:active,
+.button:disabled:focus {
+  box-shadow: none;
+  cursor: not-allowed;
+  background: $D1;
+  border-color: $D1;
+  color: $D4;
+  font-weight: 400;
+
+  &::before {
+    border-radius: 4px;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .caret-box {
+    border-left-color: $D4;
+  }
+}
+
+.fullwidth .inner {
+  justify-content: space-between;
+}
+
+.no-active {
+  &.active,
+  &:active,
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:hover {
+    cursor: default;
+  }
+}
+
+.withCaret {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}

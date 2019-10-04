@@ -1,0 +1,31 @@
+@import "../../index.css";
+
+.dp-layout {
+  background: black;
+  border: 1px solid red;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 3px 7px 0 rgba(208, 208, 208, 0.5);
+  width: 100%;
+  min-width: 230px;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 2px);
+  opacity: 0;
+  padding: 10px;
+  z-index: 7;
+}
+
+.is-up {
+  border-radius: 4px 4px 0 0;
+  top: auto;
+  bottom: calc(100% + 2px);
+}
+
+.is-right {
+  left: auto;
+  right: 0;
+}
+
+.show {
+  opacity: 1;
+}

@@ -1,0 +1,44 @@
+// Core icons.
+// Note that all icons must start with 'i-' prefix.
+@import "../../common/colors";
+@import "../../../../scss/public/icons";
+
+.pointer {
+  cursor: pointer;
+}
+
+.default {
+  cursor: default;
+}
+
+.icon {
+  display: flex;
+}
+
+.left {
+  margin-right: 8px;
+}
+
+.right {
+  margin-left: 8px;
+}
+
+.sm-left {
+  margin-right: 4px;
+}
+
+.sm-right {
+  margin-left: 4px;
+}
+
+.is-red {
+  color: $R1;
+}
+
+.is-gray {
+  color: $D4;
+}
+
+.is-orange {
+  color: $Y2;
+}

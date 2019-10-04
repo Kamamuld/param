@@ -1,0 +1,82 @@
+@import "../../common/common";
+
+.nativeCheckbox {
+  display: none;
+}
+
+.checkbox {
+  cursor: pointer;
+  position: relative;
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+  min-height: 16px;
+  background: $W;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 1px solid $D2;
+}
+
+/* Checked State */
+.checked {
+  .checkbox {
+    box-shadow: 0 0 0 0 rgba(51,122,183,0.10), inset 0 1px 1px 0 #d4d5d6;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -3px 0 0 -4px;
+      width: 8px;
+      height: 5px;
+      border: solid $D3;
+      border-width: 0 0 2px 2px;
+      transform: rotate(-45deg);
+    }
+  }
+
+  &.minus .checkbox {
+    &::before {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 2px;
+      background: $D3;
+      margin: 0;
+      border: none;
+    }
+  }
+}
+
+/* Unchecked State */
+.unchecked .checkbox {
+  box-shadow:inset 0 1px 1px 0 $D2;
+}
+
+.checked,
+.unchecked {
+  outline: none;
+}
+
+.hasError .checkbox {
+  border-color: $R2;
+  box-shadow:inset 0 1px 1px 0 rgba($R2, .2);
+
+  &::before {
+    border-color: $R2;
+  }
+}
+
+.disabled .checkbox {
+  background: $D1;
+  border-color: $D2;
+  box-shadow:inset 0 1px 1px 0 $D2;
+  cursor: default;
+  pointer-events: none;
+
+  &::before {
+    border-color: $D4;
+  }
+}

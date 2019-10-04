@@ -1,0 +1,107 @@
+@import "../../common/common";
+
+$size: 12px;
+$time: 1;
+
+.wrapper {
+  display: inline-block;
+  transform: rotate(90deg);
+  position: relative;
+}
+
+.diamondLoader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  margin: 0 (-$size / 2);
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+  border-bottom: ($size * 1.8) solid $B1;
+  animation: blink $time + s infinite;
+
+  &.down {
+    transform: rotate(180deg);
+  }
+
+  @for $i from 1 through 18 {
+    &.outer-#{$i} {
+      animation-delay: -($time / 18) * $i + s;
+    }
+  }
+
+  &.inner-1 {
+    animation-delay: -($time / 6) + s;
+  }
+
+  &.inner-2 {
+    animation-delay: -($time / 6) * 2 + s;
+  }
+
+  &.inner-3 {
+    animation-delay: -($time / 6) * 3 + s;
+  }
+
+  &.inner-4 {
+    animation-delay: -($time / 6) * 4 + s;
+  }
+
+  &.inner-5 {
+    animation-delay: -($time / 6) * 5 + s;
+  }
+
+  &.inner-6 {
+    animation-delay: -($time / 6) * 6 + s;
+  }
+}
+
+@keyframes blink {
+  0% { opacity: 0.1; }
+  30% { opacity: 1; }
+  100% { opacity: 0.1; }
+}
+
+.defaultSpinner {
+  display: block;
+  position: relative;
+  margin: (-10px) auto 0;
+  top: 40%;
+  width: 26px;
+  height: 26px;
+  border-left: 3px solid rgba(0, 174, 239, 0.15);
+  border-right: 3px solid rgba(0, 174, 239, 0.15);
+  border-bottom: 3px solid rgba(0, 174, 239, 0.15);
+  border-top: 3px solid $B2;
+  border-radius: 100%;
+  animation: rotation 0.6s infinite linear;
+}
+
+.big {
+  width: 50px;
+  height: 50px;
+  border-width: 5px;
+}
+
+.small {
+  width: 12px;
+  height: 12px;
+  border-width: 1px;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}

@@ -1,0 +1,40 @@
+@import "../../index.css";
+
+.dp-wrapper {
+  display: inline-block;
+  position: relative;
+  font: 400 12px 'Open Sans', sans-serif;
+  max-width: 100%;
+}
+
+.title {
+  text-align: center;
+  color: blue;
+}
+
+.list {
+  padding: 2px 0;
+}
+
+.btn-wrapper:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.content-item {
+  color: green;
+  cursor: pointer;
+  padding: 4px;
+  margin-bottom: 0;
+
+  &:hover {
+    color: yellow;
+    text-decoration: none;
+    background: purple;
+  }
+}
+
+.custom-overflow {
+  width: calc(100% - 25px);
+  font-size: 10px;
+  overflow: hidden!important;
+}
